@@ -31,7 +31,7 @@ Given a dataset with attributes **X**, an unsupervised anomaly detector assigns 
 
 - Finally, it uses the resulting threshold to infer the target domain's contamination factor gamma_Tm.
 
-Given a source dataset **X_s** with the contamination factor **g_s**, and a target dataset **X_t**, the algorithm is applied as follows:
+Given a source dataset **X_s** with the contamination factor **s_gamma**, and a target dataset **X_t**, the algorithm is applied as follows:
 
 ```python
 from pyod.models.knn import KNN
@@ -42,7 +42,7 @@ s_ad = KNN(n_neighbors = 25, contamination = s_gamma).fit(X_s)
 t_ad = KNN(n_neighbors = 25).fit(X_t)
 
 # Normalize the scores and get the source predictive threshold s_lambda:
-s_scores, t_scores, s_lambda = normalizeScoresLambda(s_ad, t_ad, g_s, seed = 331, noise = False)
+s_scores, t_scores, s_lambda = normalizeScoresLambda(s_ad, t_ad, s_gamma, seed = 331, noise = False)
 
 # Apply TrADe and get the target contamination:
 gamma_Tm = TrADe(s_scores, t_scores, s_lambda, seed = 331)
