@@ -60,7 +60,7 @@ X_s, y_s, X_t, y_t = split_biased_domains(X, y, n_clust = 5, source_prop = .8, s
 
 ## Dependencies
 
-The `ExCeeD` function requires the following python packages to be used:
+The `TrADe` function requires the following python packages to be used:
 - [Python 3](http://www.python.org)
 - [Numpy](http://www.numpy.org)
 - [Scipy](http://www.scipy.org)
